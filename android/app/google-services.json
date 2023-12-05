@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1099464613145",
+    "project_id": "examen1carlos",
+    "storage_bucket": "examen1carlos.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1099464613145:android:c3c26c984bfdf4c6713988",
+        "android_client_info": {
+          "package_name": "carlos.castanedo.examen_pmdm_psp_carlos_castanedo_perea"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAWI-_fWeI_JZcfdzyB06KTSRjVqvlSIMQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
