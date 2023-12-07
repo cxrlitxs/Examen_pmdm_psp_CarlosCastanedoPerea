@@ -1,5 +1,6 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:examen_pmdm_psp_carlos_castanedo_perea/Singletone/DataHolder.dart';
 import 'package:flutter/material.dart';
 
 class SplashView extends StatefulWidget {
@@ -14,6 +15,13 @@ class SplashView extends StatefulWidget {
 class _SplashViewState extends State<SplashView>{
 
   FirebaseFirestore db = FirebaseFirestore.instance;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    DataHolder().fbAdmin.checkSession(context);
+  }
 
   @override
   Widget build(BuildContext context) {
