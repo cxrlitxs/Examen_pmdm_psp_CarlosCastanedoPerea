@@ -10,6 +10,18 @@ class FirebaseAdmin{
   late FbUser user;
   FbPost? selectedPost;
 
+  //Metodo de comprobación del splash
+  void checkSession(BuildContext context) async{
+    await Future.delayed(Duration(seconds: 3));
+    if (FirebaseAuth.instance.currentUser != null) {
+        Navigator.of(context).popAndPushNamed("/homeview");
+    }
+    else{
+      Navigator.of(context).popAndPushNamed("/loginview");
+    }
+
+  }
+
   //Cargar un usuario
   Future<FbUser?> loadFbUser() async{
     String uid = FirebaseAuth.instance.currentUser!.uid;
