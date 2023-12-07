@@ -4,13 +4,11 @@ class FbPost{
 
   final String nickName;
   final String body;
-  final String sUrlImg;
   final Timestamp date;
 
   FbPost ({
     required this.nickName,
     required this.body,
-    required this.sUrlImg,
     required this.date
   });
 
@@ -22,7 +20,6 @@ class FbPost{
     return FbPost(
         nickName: data?['nickName'],
         body: data?['body'],
-        sUrlImg: data?['sUrlImg'] != null ? data!['sUrlImg'] : "",
         date: data?['date'],
     );
   }
@@ -31,7 +28,6 @@ class FbPost{
     return {
       if (nickName != null) "nickName": nickName,
       if (body != null) "body": body,
-      if (sUrlImg != null) "sUrlImg": sUrlImg,
       if (date != null) "date": date,
     };
   }
