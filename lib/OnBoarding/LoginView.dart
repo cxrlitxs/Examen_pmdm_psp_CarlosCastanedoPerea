@@ -1,5 +1,6 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:examen_pmdm_psp_carlos_castanedo_perea/CustomViews/Boton_Personalizado.dart';
+import 'package:examen_pmdm_psp_carlos_castanedo_perea/Singletone/DataHolder.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import '../CustomViews/TextFields_Personalizados.dart';
@@ -93,7 +94,9 @@ class LoginView extends StatelessWidget{
                     ),
                     SizedBox(height: 15,),
                     FadeInUp(duration: Duration(milliseconds: 1600),
-                        child: Boton_Personalizado(onPressed: (){}, hintText: "Iniciar sesión", colorPrimarios: true)
+                        child: Boton_Personalizado(onPressed: (){
+                          DataHolder().fbAdmin.onClickSignIn(correoController, passwordController, context);
+                        }, hintText: "Iniciar sesión", colorPrimarios: true)
                     ),
                     SizedBox(height: 30,),
                     FadeInUp(duration: Duration(milliseconds: 1500),

@@ -1,4 +1,5 @@
 import 'package:animate_do/animate_do.dart';
+import 'package:examen_pmdm_psp_carlos_castanedo_perea/Singletone/DataHolder.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import '../CustomViews/TextFields_Personalizados.dart';
@@ -94,7 +95,9 @@ class RegisterView extends StatelessWidget{
                     ),
                     SizedBox(height: 30,),
                     FadeInUp(duration: Duration(milliseconds: 1600), child: MaterialButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        DataHolder().fbAdmin.onClickRegistar(passwordController, usernameController, nameController, nicknameController, context);
+                      },
                       height: 50,
                       color: Color.fromRGBO(108, 99, 255, 1),
                       shape: RoundedRectangleBorder(
