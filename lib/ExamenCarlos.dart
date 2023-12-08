@@ -1,3 +1,4 @@
+import 'package:examen_pmdm_psp_carlos_castanedo_perea/Main/AjustesPerfilView.dart';
 import 'package:examen_pmdm_psp_carlos_castanedo_perea/Main/HomeView.dart';
 import 'package:examen_pmdm_psp_carlos_castanedo_perea/OnBoarding/CambiarPasswordView.dart';
 import 'package:examen_pmdm_psp_carlos_castanedo_perea/OnBoarding/RegisterView.dart';
@@ -16,8 +17,9 @@ class ExamenCarlos extends StatelessWidget{
       '/cambiarpasswordview': (context) => CambiarPasswordView(),
       '/splashview': (context) => SplashView(),
       '/homeview': (context) => HomeView(),
+      '/ajustesperfilview': (context) => AjustesPerfilView(),
     },
-        initialRoute: '/homeview',
+        initialRoute: '/ajustesperfilview',
     );
     return materialApp;
   }
