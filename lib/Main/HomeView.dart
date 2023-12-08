@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:examen_pmdm_psp_carlos_castanedo_perea/CustomViews/BottomMenu_Personalizado.dart';
 import 'package:flutter/material.dart';
 
 import '../ClasesFb/FbPost.dart';
@@ -17,7 +18,7 @@ class _HomeViewState extends State<HomeView> {
 
   FirebaseFirestore db = FirebaseFirestore.instance;
   List<FbPost> posts = [];
-  bool bIsList = false;
+  bool bIsList = true;
 
   @override
   void initState() {
@@ -52,6 +53,7 @@ class _HomeViewState extends State<HomeView> {
         backgroundColor: Color.fromRGBO(108, 99, 255, .4),
         centerTitle: true,
       ), body: cellsOList(bIsList),
+      bottomNavigationBar: BottomMenu_Personalizado(onBotonesClicked: onBottonMenuPressed),
     );
   }
 
@@ -115,6 +117,18 @@ class _HomeViewState extends State<HomeView> {
           itemBuilder: matrixItemCreator
       );
     }
+  }
+
+  void onBottonMenuPressed(int indice) {
+
+    setState(() {
+      if(indice == 0){
+        bIsList=true;
+      }
+      else if(indice==1){
+        bIsList=false;
+      }
+    });
   }
 
 }
