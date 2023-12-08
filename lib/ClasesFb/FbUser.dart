@@ -2,8 +2,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 
 class FbUser {
 
-  final String nombreCompleto;
-  final String nickName;
+  String nombreCompleto;
+  String nickName;
 
   FbUser ({
     required this.nombreCompleto,

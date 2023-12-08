@@ -175,4 +175,29 @@ class FirebaseAdmin{
     postsSubscription?.cancel();
   }
 
+  //Actualizar el nombre y apellidos
+  Future<void> updateUserName_nickName(String nuevoNombre, String nuevoNickName) async {
+    // Obtener el usuario actual
+    User? currentUser = FirebaseAuth.instance.currentUser;
+
+    if (currentUser != null) {
+      // Obtener el documento del usuario actual
+      DocumentReference<FbUser> userDocRef = db.collection("users").doc(currentUser.uid).withConverter(
+        fromFirestore: FbUser.fromFirestore,
+        toFirestore: (FbUser user, _) => user.toFirestore(),
+      );
+
+      // Obtener los datos actuales del usuario
+      DocumentSnapshot<FbUser> userDoc = await userDocRef.get();
+      FbUser usuarioActual = userDoc.data()!;
+
+      // Actualizar solo los atributos necesarios
+      usuarioActual.nombreCompleto = nuevoNombre;
+      usuarioActual.nickName = nuevoNickName;
+
+      // Guardar los cambios en Firestore
+      await userDocRef.set(usuarioActual);
+    }
+  }
+
 }

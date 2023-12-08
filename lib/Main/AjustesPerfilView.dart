@@ -69,8 +69,8 @@ class AjustesPerfilView extends StatelessWidget{
                           ),
                           child: Column(
                             children: [
-                              TextFields_Personalizados(controller: nombreController, hintText: "Nombre", obscuredText: true),
-                              TextFields_Personalizados(controller: nickNameController, hintText: "Apodo", obscuredText: true),
+                              TextFields_Personalizados(controller: nombreController, hintText: "Nombre", obscuredText: false),
+                              TextFields_Personalizados(controller: nickNameController, hintText: "Apodo", obscuredText: false),
                             ],
                           ),
                         )
