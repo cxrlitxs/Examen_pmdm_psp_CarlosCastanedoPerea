@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../ClasesFb/FbPost.dart';
 import '../CustomViews/PostCellView.dart';
+import '../CustomViews/PostGridCellView.dart';
 import '../Singletone/DataHolder.dart';
 
 class HomeView extends StatefulWidget{
@@ -16,6 +17,7 @@ class _HomeViewState extends State<HomeView> {
 
   FirebaseFirestore db = FirebaseFirestore.instance;
   List<FbPost> posts = [];
+  bool bIsList = false;
 
   @override
   void initState() {
@@ -49,18 +51,25 @@ class _HomeViewState extends State<HomeView> {
       appBar: AppBar(title: const Text("POSTS", style: TextStyle(color: Colors.white),),
         backgroundColor: Color.fromRGBO(108, 99, 255, .4),
         centerTitle: true,
-      ), body: ListView.separated(
-      padding: const EdgeInsets.all(8),
-      itemCount: posts.length,
-      itemBuilder: itemListCreator,
-      separatorBuilder: listSeparatorCreator,
-    ),
+      ), body: cellsOList(bIsList),
     );
   }
 
   //Creador del item
   Widget? itemListCreator(BuildContext context, int index){
     return PostCellView(
+      sNickName: posts[index].nickName,
+      sBody: posts[index].body,
+      sDate: posts[index].formattedData(),
+      dFontSize: 20,
+      iColorCode: 0,
+      iPosition: index,
+      onItemListClickedFun: onItemListClicked,
+    );
+  }
+
+  Widget? matrixItemCreator(BuildContext context, int index){
+    return PostGridCellView(
       sNickName: posts[index].nickName,
       sBody: posts[index].body,
       sDate: posts[index].formattedData(),
@@ -88,6 +97,24 @@ class _HomeViewState extends State<HomeView> {
         //CircularProgressIndicator(),
       ],
     );
+  }
+
+  Widget cellsOList(bool isList) {
+
+    if (isList) {
+      return ListView.separated(
+        padding: const EdgeInsets.all(8),
+        itemCount: posts.length,
+        itemBuilder: itemListCreator,
+        separatorBuilder: listSeparatorCreator,
+      );
+    } else {
+      return GridView.builder(
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+          itemCount: posts.length,
+          itemBuilder: matrixItemCreator
+      );
+    }
   }
 
 }

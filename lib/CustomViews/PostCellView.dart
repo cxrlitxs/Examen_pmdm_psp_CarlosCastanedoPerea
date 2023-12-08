@@ -25,8 +25,8 @@ class PostCellView extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return InkWell(child:
-      Container(
+    return InkWell(
+      child: Container(
           decoration: BoxDecoration(
               color: Color.fromRGBO(108, 99, 255, .2),
               borderRadius: BorderRadius.circular(10),
@@ -48,7 +48,8 @@ class PostCellView extends StatelessWidget{
              children: [
                Text(sNickName,style: const TextStyle(color: Colors.black, fontWeight: FontWeight.bold),),
                const SizedBox(height: 10,),
-               Text(sBody),
+               Text(sBody,
+                 overflow: TextOverflow.ellipsis,),
                const SizedBox(height: 10,),
                Text(sDate),
                //"$sNickName • $sDate"
