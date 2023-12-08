@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -141,4 +143,36 @@ class FirebaseAdmin{
       );
     }
   }
+
+  StreamSubscription<QuerySnapshot<FbPost>>? postsSubscription;
+
+  // Método para iniciar la escucha de posts
+  void iniciarEscuchaPosts({
+    required void Function(List<FbPost> posts) onData,
+    required void Function(dynamic error) onError,
+  }) {
+    CollectionReference<FbPost> ref = db.collection("posts").withConverter(
+      fromFirestore: FbPost.fromFirestore,
+      toFirestore: (FbPost post, _) => post.toFirestore(),
+    );
+
+    postsSubscription = ref
+        .orderBy("date", descending: true) // Ordenar por fecha descendente
+        .snapshots().listen(
+          (QuerySnapshot<FbPost> postsDescargados) {
+        List<FbPost> posts = postsDescargados.docs
+            .map((doc) => doc.data()!)
+            .toList(growable: false);
+
+        onData(posts);
+      },
+      onError: onError,
+    );
+  }
+
+  // Método para detener la escucha de posts
+  void detenerEscuchaPosts() {
+    postsSubscription?.cancel();
+  }
+
 }
