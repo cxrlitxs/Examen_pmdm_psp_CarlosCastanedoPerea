@@ -159,9 +159,9 @@ class _HomeViewState extends State<HomeView> {
                     ),
                     ListTile(
                     onTap: () {
-                      Navigator.pushReplacementNamed(context, '/ajustesperfilview');
+                      Navigator.of(context).pushNamed("/ajustesperfilview");
                     },
-                    leading: const Icon(Icons.settings),
+                    leading: const Icon(Icons.account_circle),
                     title: const Text('Settings'),
                     ),
                     ListTile(

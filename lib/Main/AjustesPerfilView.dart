@@ -78,9 +78,14 @@ class AjustesPerfilView extends StatelessWidget{
                     SizedBox(height: 15,),
                     FadeInUp(duration: Duration(milliseconds: 1600),
                         child: Boton_Personalizado(onPressed: (){
-
-
-
+                          Navigator.pushReplacementNamed(context, '/homeview');
+                        }, hintText: "Volver", colorPrimarios: false)
+                    ),
+                    SizedBox(height: 15,),
+                    FadeInUp(duration: Duration(milliseconds: 1600),
+                        child: Boton_Personalizado(onPressed: (){
+                          DataHolder().fbAdmin.updateUserName_nickName(nombreController.text, nickNameController.text);
+                          Navigator.of(context).pushNamed("/homeview");
                         }, hintText: "Modificar el perfil", colorPrimarios: true)
                     ),
                   ],

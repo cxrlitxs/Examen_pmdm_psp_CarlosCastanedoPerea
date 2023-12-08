@@ -19,7 +19,7 @@ class ExamenCarlos extends StatelessWidget{
       '/homeview': (context) => HomeView(),
       '/ajustesperfilview': (context) => AjustesPerfilView(),
     },
-        initialRoute: '/ajustesperfilview',
+        initialRoute: '/homeview',
     );
     return materialApp;
   }
