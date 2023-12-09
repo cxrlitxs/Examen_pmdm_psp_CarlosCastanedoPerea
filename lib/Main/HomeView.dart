@@ -198,8 +198,21 @@ class _HomeViewState extends State<HomeView> {
                   ),
               ), body: cellsOList(bIsList),
               bottomNavigationBar: BottomMenu_Personalizado(onBotonesClicked: onBottonMenuPressed),
+              floatingActionButton: FadeIn(
+                duration: Duration(milliseconds: 1600),
+                child: FloatingActionButton(
+                  backgroundColor: Color.fromRGBO(108, 99, 255, .4),
+                  onPressed: onClickNewPost,
+                  tooltip: 'Nueva publicación ',
+                  child: const Icon(Icons.add),
+                ),
+              ),
            ),
     );
+  }
+
+  void onClickNewPost() {
+    Navigator.pushReplacementNamed(context, '/newpostview');
   }
 
   //Creador del item
