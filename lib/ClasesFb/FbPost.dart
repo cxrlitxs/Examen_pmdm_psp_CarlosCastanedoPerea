@@ -3,13 +3,15 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 class FbPost{
 
   final String nickName;
-  final String body;
+  String body;
   final Timestamp date;
+  String? id;
 
   FbPost ({
     required this.nickName,
     required this.body,
-    required this.date
+    required this.date,
+    this.id
   });
 
   factory FbPost.fromFirestore(

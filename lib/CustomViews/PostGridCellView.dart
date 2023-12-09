@@ -9,8 +9,9 @@ class PostGridCellView extends StatelessWidget{
   final double dFontSize;
   final int iPosition;
   final Function(int index) onItemListClickedFun;
+  String? sId;
 
-  const PostGridCellView({super.key,
+  PostGridCellView({super.key,
     required this.sNickName,
     required this.sBody,
     required this.sDate,
@@ -18,6 +19,7 @@ class PostGridCellView extends StatelessWidget{
     required this.dFontSize,
     required this.iPosition,
     required this.onItemListClickedFun,
+    required this.sId
   });
 
 

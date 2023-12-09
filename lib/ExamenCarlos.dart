@@ -4,6 +4,7 @@ import 'package:examen_pmdm_psp_carlos_castanedo_perea/OnBoarding/CambiarPasswor
 import 'package:examen_pmdm_psp_carlos_castanedo_perea/OnBoarding/RegisterView.dart';
 import 'package:examen_pmdm_psp_carlos_castanedo_perea/OnBoarding/SplashView.dart';
 import 'package:flutter/material.dart';
+import 'Main/PostView.dart';
 import 'OnBoarding/LoginView.dart';
 
 class ExamenCarlos extends StatelessWidget{
@@ -18,6 +19,7 @@ class ExamenCarlos extends StatelessWidget{
       '/splashview': (context) => SplashView(),
       '/homeview': (context) => HomeView(),
       '/ajustesperfilview': (context) => AjustesPerfilView(),
+      '/postview': (context) => PostView(),
     },
         initialRoute: '/homeview',
     );

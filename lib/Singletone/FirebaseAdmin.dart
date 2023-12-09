@@ -161,7 +161,11 @@ class FirebaseAdmin{
         .snapshots().listen(
           (QuerySnapshot<FbPost> postsDescargados) {
         List<FbPost> posts = postsDescargados.docs
-            .map((doc) => doc.data()!)
+            .map((doc) {
+          FbPost post = doc.data()!;
+          post.id = doc.id; // Asignar el ID del documento al atributo 'id' de FbPost
+          return post;
+        })
             .toList(growable: false);
 
         onData(posts);
@@ -198,6 +202,26 @@ class FirebaseAdmin{
       // Guardar los cambios en Firestore
       await userDocRef.set(usuarioActual);
     }
+  }
+
+  //Actualizar un post
+  Future<void> updateBodyPost(String body, String? id) async {
+
+      // Obtener el documento del post actual
+      DocumentReference<FbPost> userDocRef = db.collection("posts").doc(id).withConverter(
+        fromFirestore: FbPost.fromFirestore,
+        toFirestore: (FbPost user, _) => user.toFirestore(),
+      );
+
+      // Obtener los datos actuales del post
+      DocumentSnapshot<FbPost> postDoc = await userDocRef.get();
+      FbPost postActual = postDoc.data()!;
+
+      // Actualizar solo los atributos necesarios
+      postActual.body = body;
+
+      // Guardar los cambios en Firestore
+      await userDocRef.set(postActual);
   }
 
 }
