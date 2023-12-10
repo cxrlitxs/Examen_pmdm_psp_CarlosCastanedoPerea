@@ -98,7 +98,7 @@ class _PostViewState extends State<PostView> {
         Text("Post de ", style: TextStyle(color: Colors.white),),
         Text(nickName, style: TextStyle(color: Colors.white),),
       ],),
-        backgroundColor: Color.fromRGBO(108, 99, 255, .4),
+        backgroundColor: Color.fromRGBO(108, 99, 255, 1),
         actions: [
           IconButton(
             icon: Icon(Icons.edit),
@@ -117,10 +117,10 @@ class _PostViewState extends State<PostView> {
               children: [
                 Container(
                     decoration: BoxDecoration(
-                        color: Color.fromRGBO(108, 99, 255, .2),
+                        color: Colors.white,
                         borderRadius: BorderRadius.circular(10),
                         boxShadow: [BoxShadow(
-                            color: Color.fromRGBO(108, 99, 255, .4),
+                            color: Color.fromRGBO(108, 99, 255, 1),
                             blurRadius: 20,
                             offset: Offset(0, 20)
                         )
