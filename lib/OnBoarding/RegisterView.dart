@@ -144,7 +144,7 @@ class _RegisterViewState extends State<RegisterView> {
                           SizedBox(height: 30,),
                           FadeInUp(duration: Duration(milliseconds: 1600), child: MaterialButton(
                             onPressed: () {
-                              if(passwordController == rePasswordController){
+                              if(passwordController.text == rePasswordController.text){
                                 DataHolder().fbAdmin.onClickRegistar(passwordController, usernameController, nameController, nicknameController, itemSeleccionadoMarvel, itemSeleccionadoPokemon, context);
                               }
                               else {

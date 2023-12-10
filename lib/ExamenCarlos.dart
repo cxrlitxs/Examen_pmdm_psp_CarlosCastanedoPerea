@@ -23,7 +23,7 @@ class ExamenCarlos extends StatelessWidget{
       '/postview': (context) => PostView(),
       '/newpostview': (context) => NewPostView(),
     },
-        initialRoute: '/loginview',
+        initialRoute: '/splashview',
     );
     return materialApp;
   }
