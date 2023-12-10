@@ -4,10 +4,14 @@ class FbUser {
 
   String nombreCompleto;
   String nickName;
+  String pokemonFavorito;
+  String personajeMarvelFavorito;
 
   FbUser ({
     required this.nombreCompleto,
     required this.nickName,
+    required this.pokemonFavorito,
+    required this.personajeMarvelFavorito,
   });
 
   factory FbUser.fromFirestore (
@@ -18,6 +22,8 @@ class FbUser {
     return FbUser(
       nombreCompleto: data?['nombreCompleto'] != null ? data!['nombreCompleto'] : "",
       nickName: data?['nickName'] != null ? data!['nickName'] : "",
+      pokemonFavorito: data?['pokemonFavorito'] != null ? data!['pokemonFavorito'] : "",
+      personajeMarvelFavorito: data?['personajeFavorito'] != null ? data!['personajeFavorito'] : "",
     );
   }
 
@@ -25,6 +31,8 @@ class FbUser {
     return {
       if (nombreCompleto != null) "nombreCompleto": nombreCompleto,
       if (nickName != null) "nickName": nickName,
+      if (pokemonFavorito != null) "pokemonFavorito": pokemonFavorito,
+      if (personajeMarvelFavorito != null) "personajeFavorito": personajeMarvelFavorito,
     };
   }
 }

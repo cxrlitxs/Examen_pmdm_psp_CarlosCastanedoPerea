@@ -81,7 +81,8 @@ class FirebaseAdmin{
 
   //Registrar a un usuario
   Future<void> onClickRegistar(TextEditingController passwordController, TextEditingController usernameController,
-      TextEditingController nombreController, TextEditingController nickNameController, BuildContext context) async {
+      TextEditingController nombreController, TextEditingController nickNameController,
+      String personajeMarvelFavorito, String pokemonFavorito,BuildContext context) async {
 
       try {
         //Crear usuario
@@ -91,7 +92,7 @@ class FirebaseAdmin{
         );
 
         //Añadirle los datos al usuario
-        FbUser user = FbUser(nombreCompleto: nombreController.text, nickName: nickNameController.text,);
+        FbUser user = FbUser(nombreCompleto: nombreController.text, nickName: nickNameController.text, personajeMarvelFavorito: personajeMarvelFavorito, pokemonFavorito: pokemonFavorito);
         //Create document with ID
         String userUid = FirebaseAuth.instance.currentUser!.uid;
         await db.collection("users").doc(userUid).set(user.toFirestore());
@@ -100,9 +101,9 @@ class FirebaseAdmin{
 
       } on FirebaseAuthException catch (e) {
         if (e.code == 'weak-password') {
-          print('The password provided is too weak.');
+          SnackBar(content: Text('The password provided is too weak.'));
         } else if (e.code == 'email-already-in-use') {
-          print('The account already exists for that email.');
+          SnackBar(content: Text('The account already exists for that email.'));
         }
       } catch (e) {
         print(e);

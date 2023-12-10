@@ -1,3 +1,5 @@
+import 'package:examen_pmdm_psp_carlos_castanedo_perea/Singletone/HttpAdmin.dart';
+
 import 'FirebaseAdmin.dart';
 
 class DataHolder{
@@ -11,5 +13,6 @@ class DataHolder{
   }
 
   FirebaseAdmin fbAdmin = FirebaseAdmin();
+  HttpAdmin apis = HttpAdmin();
 
 }

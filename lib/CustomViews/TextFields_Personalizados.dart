@@ -32,7 +32,7 @@ class TextFields_Personalizados extends StatelessWidget{
       child: TextField(
         controller: controller,
         obscureText: obscuredText,
-        maxLines: maxLines,
+        maxLines: obscuredText ? 1 : maxLines,
         decoration: InputDecoration(
             hintText: hintText,
             hintStyle: TextStyle(color: Colors.grey),
