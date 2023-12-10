@@ -112,7 +112,10 @@ class _HomeViewState extends State<HomeView> {
         gradient: LinearGradient(
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
-          colors: [Colors.blueGrey, Colors.blueGrey.withOpacity(0.2)],
+          colors: [
+            Color.fromRGBO(158, 99, 255, 1),
+            Color.fromRGBO(108, 99, 255, 1),
+            Color.fromRGBO(99, 190, 255, 1),],
           ),
         ),
       ),
@@ -148,7 +151,7 @@ class _HomeViewState extends State<HomeView> {
                       color: Colors.black26,
                       shape: BoxShape.circle,
                       ),
-                    child: Text("Hola"),
+                    child: Image.asset("resources/avatar.png"),
                     ),
                     ListTile(
                     onTap: () {
@@ -179,7 +182,7 @@ class _HomeViewState extends State<HomeView> {
               backgroundColor: Colors.grey[200],
               appBar: AppBar(
                 title: const Text("POSTS", style: TextStyle(color: Colors.white),),
-                backgroundColor: Color.fromRGBO(108, 99, 255, .4),
+                backgroundColor: Color.fromRGBO(108, 99, 255, 1),
                 centerTitle: true,
                 leading: IconButton(
                   onPressed: _handleMenuButtonPressed,
@@ -201,7 +204,7 @@ class _HomeViewState extends State<HomeView> {
               floatingActionButton: FadeIn(
                 duration: Duration(milliseconds: 1600),
                 child: FloatingActionButton(
-                  backgroundColor: Color.fromRGBO(108, 99, 255, .4),
+                  backgroundColor: Color.fromRGBO(108, 99, 255, 1),
                   onPressed: onClickNewPost,
                   tooltip: 'Nueva publicación ',
                   child: const Icon(Icons.add),

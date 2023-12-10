@@ -30,10 +30,10 @@ class PostCellView extends StatelessWidget{
     return InkWell(
       child: Container(
           decoration: BoxDecoration(
-              color: Color.fromRGBO(108, 99, 255, .2),
+              color: Colors.white,
               borderRadius: BorderRadius.circular(10),
               boxShadow: [BoxShadow(
-                  color: Color.fromRGBO(108, 99, 255, .4),
+                  color: Color.fromRGBO(108, 99, 255, 1),
                   blurRadius: 20,
                   offset: Offset(0, 20)
               )
